@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class S3controller {
 
     @Autowired
@@ -25,8 +25,7 @@ public class S3controller {
   @Autowired
   private SellerDocumentRepository sellerDocumentRepository;
 
-
-    @PostMapping("/Upload/{userId}/{docType}")
+    @PostMapping("/Upload/{docType}")
     public ResponseEntity<Map<String, Object>> upload(
             @RequestParam("file") MultipartFile file,
             @PathVariable String docType) throws IOException {
